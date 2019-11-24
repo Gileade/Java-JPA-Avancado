@@ -37,7 +37,7 @@ public class Produto {
 	
 	@ManyToMany
 	private List<Categoria> categorias = new ArrayList<>();
-	
+
 	@Valid
 	@ManyToOne
 	private Loja loja;
@@ -97,6 +97,14 @@ public class Produto {
 
 	public Loja getLoja() {
 		return loja;
+	}
+	
+	public List<Categoria> getCategorias() {
+		return categorias;
+	}
+
+	public void setCategorias(List<Categoria> categorias) {
+		this.categorias = categorias;
 	}
 
 }
