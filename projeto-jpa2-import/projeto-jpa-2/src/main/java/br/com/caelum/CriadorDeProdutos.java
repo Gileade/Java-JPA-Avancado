@@ -52,7 +52,7 @@ public class CriadorDeProdutos {
 				cursoDeViolao.setLoja(musicalAlegre);
 				cursoDeViolao.setPreco(49.0);
 				cursoDeViolao.setDescricao("Estude com os melhores professores e aprenda no seu ritmo, sem sair de casa.");
-//				cursoDeViolao.adicionarCategorias(tecnologia, musica);
+				cursoDeViolao.adicionarCategorias(tecnologia, musica);
 				cursoDeViolao.setLinkDaFoto("https://pbs.twimg.com/profile_images/378800000825434860/12136ee913ed4f44860914d44650144e.png");
 				
 				em.persist(cursoDeViolao);
@@ -61,7 +61,7 @@ public class CriadorDeProdutos {
 				livroDeArquitetura.setNome("Introduçao a Arquitetura Java e Design de projetos com Java");
 				livroDeArquitetura.setLoja(casaDoCodigo);
 				livroDeArquitetura.setPreco(30.0);
-//				livroDeArquitetura.adicionarCategorias(tecnologia);
+				livroDeArquitetura.adicionarCategorias(tecnologia);
 				livroDeArquitetura.setDescricao("Neste livro, os autores, conhecidos especialistas da "
 											   + " área, apresentam muitos tópicos que aparecem com frequência"
 											   + " na plataforma Java, incluindo desde modelagem e design das "
@@ -78,7 +78,7 @@ public class CriadorDeProdutos {
 				livroDeSpring.setNome("Vire o jogo com Spring Framework");
 				livroDeSpring.setLoja(casaDoCodigo);
 				livroDeSpring.setPreco(30.0);
-//				livroDeSpring.adicionarCategorias(tecnologia);
+				livroDeSpring.adicionarCategorias(tecnologia);
 				livroDeSpring.setDescricao("Criado para simplificar o desenvolvimento de aplicações Java, "
 						+ "o Spring se tornou um dos frameworks de mais destaque dentro desse grande ambiente.  "
 						+ "Aprenda muito mais que o básico do Spring, desde o tradicional Container de Inversão "
@@ -94,8 +94,8 @@ public class CriadorDeProdutos {
 				violao.setLoja(musicalAlegre);
 				violao.setDescricao("Excelente violão");
 				violao.setPreco(500.0);
-//				violao.adicionarCategorias(musica);
-				violao.setLinkDaFoto("http://www.marillac.g12.br/imgs/atividade%20complementar/violao.jpg");
+				violao.adicionarCategorias(musica);
+				violao.setLinkDaFoto("https://www.serenatanet.com.br/imagens/produtos/030200700200423/030200700200423/Ampliada/violao-classico-yamaha-c45-com-cordas-de-nylon.jpg");
 				
 				em.persist(violao);
 				
@@ -104,7 +104,7 @@ public class CriadorDeProdutos {
 				flauta.setLoja(musicalAlegre);
 				flauta.setDescricao("Flauta doce");
 				flauta.setPreco(300.0);
-//				flauta.adicionarCategorias(musica);
+				flauta.adicionarCategorias(musica);
 				flauta.setLinkDaFoto("http://i.mlcdn.com.br/1500x1500/flauta-doce-germanicayamaha-yrs-23g-204013000.jpg");
 				
 				em.persist(flauta);
