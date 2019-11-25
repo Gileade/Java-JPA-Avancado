@@ -39,7 +39,7 @@ public class ProdutoDao {
 		return produto;
 	}
 	
-	//Utilizando o Transactional
+	//Utilizando o Transactional (Criteria do Hibernate)
 	@Transactional
 	public List<Produto> getProdutos(String nome, Integer categoriaId, Integer lojaId) {
 	    Session session = em.unwrap(Session.class);
