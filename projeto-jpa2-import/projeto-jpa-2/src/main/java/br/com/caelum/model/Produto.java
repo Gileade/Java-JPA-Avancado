@@ -51,8 +51,6 @@ public class Produto {
 		this.descricao = descricao;
 	}
 	
-	//método auxiliar para associar categorias com o produto
-	//se funcionar apos ter definido o relacionamento entre produto e categoria
 	public void adicionarCategorias(Categoria... categorias) {
 		for (Categoria categoria : categorias) {
 			this.categorias.add(categoria);
