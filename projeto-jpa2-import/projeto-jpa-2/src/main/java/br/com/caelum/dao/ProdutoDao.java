@@ -13,7 +13,12 @@ import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
+import org.hibernate.Criteria;
+import org.hibernate.FetchMode;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.caelum.model.Categoria;
 import br.com.caelum.model.Loja;
@@ -33,8 +38,32 @@ public class ProdutoDao {
 		Produto produto = em.find(Produto.class, id);
 		return produto;
 	}
-
+	
+	//Utilizando o Transactional
+	@Transactional
 	public List<Produto> getProdutos(String nome, Integer categoriaId, Integer lojaId) {
+	    Session session = em.unwrap(Session.class);
+	    Criteria criteria = session.createCriteria(Produto.class);
+
+	    if (!nome.isEmpty()) {
+	        criteria.add(Restrictions.like("nome", "%" + nome + "%"));
+	    }
+
+	    if (lojaId != null) {
+	        criteria.add(Restrictions.like("loja.id", lojaId));
+	    }
+
+	    if (categoriaId != null) {
+	        criteria.setFetchMode("categorias", FetchMode.JOIN)
+	            .createAlias("categorias", "c")
+	            .add(Restrictions.like("c.id", categoriaId));
+	    }
+
+	    return (List<Produto>) criteria.list();
+	}
+
+	//Utilizando o Criteria
+/*	public List<Produto> getProdutos(String nome, Integer categoriaId, Integer lojaId) {
 //		Código Original
 
 //		CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
@@ -139,7 +168,7 @@ public class ProdutoDao {
 		TypedQuery<Produto> typedQuery = em.createQuery(query.where(conjuncao));
 		return typedQuery.getResultList();
 	}
-
+*/
 	public void insere(Produto produto) {
 		if (produto.getId() == null)
 			em.persist(produto);
