@@ -39,6 +39,7 @@ public class ProdutoDao {
 		return produto;
 	}
 	
+	/*
 	//Utilizando o Transactional (Criteria do Hibernate)
 	@Transactional
 	public List<Produto> getProdutos(String nome, Integer categoriaId, Integer lojaId) {
@@ -61,9 +62,8 @@ public class ProdutoDao {
 
 	    return (List<Produto>) criteria.list();
 	}
-
-	//Utilizando o Criteria
-/*	public List<Produto> getProdutos(String nome, Integer categoriaId, Integer lojaId) {
+*/
+	public List<Produto> getProdutos(String nome, Integer categoriaId, Integer lojaId) {
 //		Código Original
 
 //		CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
@@ -168,7 +168,7 @@ public class ProdutoDao {
 		TypedQuery<Produto> typedQuery = em.createQuery(query.where(conjuncao));
 		return typedQuery.getResultList();
 	}
-*/
+
 	public void insere(Produto produto) {
 		if (produto.getId() == null)
 			em.persist(produto);
