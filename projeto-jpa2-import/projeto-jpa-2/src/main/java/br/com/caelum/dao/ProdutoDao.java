@@ -166,6 +166,8 @@ public class ProdutoDao {
 		}
 
 		TypedQuery<Produto> typedQuery = em.createQuery(query.where(conjuncao));
+		typedQuery.setHint("org.hibernate.cacheable", "true");
+		
 		return typedQuery.getResultList();
 	}
 
